@@ -52,7 +52,23 @@ class _JulioState extends State<Julio> {
         padding: EdgeInsets.all(5),
         child: Column(
           children: [
+            SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: Padding(
+                padding: EdgeInsets.all(6),
+                child: Text(
+                  'TR Julio',
+                  style: TextStyle(fontFamily: 'Lobster', fontSize: 25),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             TextField(
+              style: TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Digite o Nome do Cliente',
@@ -68,6 +84,7 @@ class _JulioState extends State<Julio> {
             ),
             SizedBox(height: 20),
             TextField(
+              style: TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'De onde:',
@@ -83,6 +100,7 @@ class _JulioState extends State<Julio> {
             ),
             SizedBox(height: 20),
             TextField(
+              style: TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Para Onde:',
@@ -98,6 +116,7 @@ class _JulioState extends State<Julio> {
             ),
             SizedBox(height: 20),
             TextField(
+              style: TextStyle(fontFamily: 'FiraSansB'),
               controller: _valueController, // Controlador para o campo de valor
               keyboardType: TextInputType.number, // Apenas teclado numérico
               decoration: InputDecoration(
@@ -115,6 +134,7 @@ class _JulioState extends State<Julio> {
             ),
             SizedBox(height: 20),
             TextField(
+              style: TextStyle(fontFamily: 'FiraSansB'),
               controller: _dateController, // Controlador para o campo de data
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -134,7 +154,20 @@ class _JulioState extends State<Julio> {
                 _selectDate(context); // Abre o seletor de data
               },
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 40),
+            TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(backgroundColor: Colors.black),
+                child: Padding(
+                  padding: const EdgeInsets.all(7.0),
+                  child: Text(
+                    'Realizar Orçamento',
+                    style: TextStyle(
+                        fontFamily: 'Lobster',
+                        fontSize: 18,
+                        color: Colors.white),
+                  ),
+                ))
           ],
         ),
       ),

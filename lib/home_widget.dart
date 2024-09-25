@@ -36,7 +36,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
             Center(
               child: Text('Bem-vindo!',
-                  style: TextStyle(fontFamily: 'Lobster', fontSize: 20)),
+                  style: TextStyle(fontFamily: 'Lobster', fontSize: 35)),
             ),
             SizedBox(
               height: 25,
@@ -52,7 +52,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               ),
             ),
-            SizedBox(height: 80),
+            SizedBox(height: 50),
             GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -95,7 +95,23 @@ class _HomeWidgetState extends State<HomeWidget> {
                   );
                 }),
             SizedBox(
-              height: 200,
+              height: 40,
+            ),
+            TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(backgroundColor: Colors.black),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(
+                    'Continuar',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontFamily: 'Lobster'),
+                  ),
+                )),
+            SizedBox(
+              height: 150,
             ),
             Center(
               child: Text(
