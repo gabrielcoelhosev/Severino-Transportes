@@ -29,8 +29,9 @@ class _JulioState extends State<Julio> {
 
     if (picked != null) {
       setState(() {
-        _dateController.text = "${picked.toLocal()}"
-            .split(' ')[0]; // Formata a data como 'YYYY-MM-DD'
+        _dateController.text =
+            "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
+        // Formata a data como 'YYYY-MM-DD'
       });
     }
   }
@@ -59,7 +60,7 @@ class _JulioState extends State<Julio> {
               child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Text(
-                  'TR Julio',
+                  'Junior Fretes e Mudanças',
                   style: TextStyle(fontFamily: 'Lobster', fontSize: 25),
                 ),
               ),
@@ -163,7 +164,7 @@ class _JulioState extends State<Julio> {
                   child: Text(
                     'Realizar Orçamento',
                     style: TextStyle(
-                        fontFamily: 'Lobster',
+                        fontFamily: 'FiraSansB',
                         fontSize: 18,
                         color: Colors.white),
                   ),

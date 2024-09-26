@@ -29,8 +29,9 @@ class _JuniorState extends State<Junior> {
 
     if (picked != null) {
       setState(() {
-        _dateController.text = "${picked.toLocal()}"
-            .split(' ')[0]; // Formata a data como 'YYYY-MM-DD'
+        _dateController.text =
+            "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
+        // Formata a data como 'YYYY-MM-DD'
       });
     }
   }
@@ -163,7 +164,7 @@ class _JuniorState extends State<Junior> {
                   child: Text(
                     'Realizar Orçamento',
                     style: TextStyle(
-                        fontFamily: 'Lobster',
+                        fontFamily: 'FiraSansB',
                         fontSize: 18,
                         color: Colors.white),
                   ),
