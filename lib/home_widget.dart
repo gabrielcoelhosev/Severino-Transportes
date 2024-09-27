@@ -22,12 +22,13 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70,
         backgroundColor: Colors.black,
         centerTitle: true,
         title: const Text(
           'Severino Transportes',
           style: TextStyle(
-              color: Colors.white, fontFamily: 'Lobster', fontSize: 27),
+              color: Colors.white, fontFamily: 'FiraSansB', fontSize: 25),
         ),
       ),
       body: Column(
@@ -36,11 +37,11 @@ class _HomeWidgetState extends State<HomeWidget> {
           SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 50),
                 const Center(
                   child: Text(
                     'Bem-vindo!',
-                    style: TextStyle(fontFamily: 'Lobster', fontSize: 35),
+                    style: TextStyle(fontFamily: 'FiraSansB', fontSize: 35),
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -127,7 +128,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
-                        fontFamily: 'Lobster',
+                        fontFamily: 'FiraSansB',
                       ),
                     ),
                   ),

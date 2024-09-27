@@ -40,13 +40,14 @@ class _JuniorState extends State<Junior> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70,
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.black,
         centerTitle: true,
         title: const Text(
           'Severino Transportes',
           style: TextStyle(
-              color: Colors.white, fontFamily: 'Lobster', fontSize: 27),
+              color: Colors.white, fontFamily: 'FiraSansB', fontSize: 25),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,14 +55,14 @@ class _JuniorState extends State<Junior> {
         child: Column(
           children: [
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             Center(
               child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Text(
                   'Junior Fretes e Mudanças',
-                  style: TextStyle(fontFamily: 'Lobster', fontSize: 25),
+                  style: TextStyle(fontFamily: 'FiraSansB', fontSize: 25),
                 ),
               ),
             ),
