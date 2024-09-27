@@ -51,7 +51,7 @@ class _JulioState extends State<Julio> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             SizedBox(

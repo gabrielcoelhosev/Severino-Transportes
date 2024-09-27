@@ -51,7 +51,7 @@ class _JuniorState extends State<Junior> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             SizedBox(

@@ -41,7 +41,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 const Center(
                   child: Text(
                     'Bem-vindo!',
-                    style: TextStyle(fontFamily: 'FiraSansB', fontSize: 35),
+                    style: TextStyle(fontFamily: 'FiraSansB', fontSize: 25),
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -76,39 +76,50 @@ class _HomeWidgetState extends State<HomeWidget> {
                               index; // Atualiza o índice selecionado
                         });
                       },
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 180,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                width: 5,
-                                color:
-                                    seSelecionado ? Colors.red : Colors.white,
-                              ),
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                image: AssetImage(users[index].image),
-                                fit: BoxFit.cover,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 180,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 5,
+                                  color:
+                                      seSelecionado ? Colors.red : Colors.white,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  image: AssetImage(users[index].image),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(5),
-                              child: Text(users[index].text,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'FiraSansB',
-                                      color: seSelecionado
-                                          ? Colors.red
-                                          : Colors.black)),
+                            Expanded(
+                              child: SizedBox(
+                                height: 5,
+                              ),
                             ),
-                          ),
-                        ],
+                            Expanded(
+                              flex: 9,
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(0),
+                                  child: Text(users[index].text,
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'FiraSansB',
+                                          color: seSelecionado
+                                              ? Colors.red
+                                              : Colors.black)),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
