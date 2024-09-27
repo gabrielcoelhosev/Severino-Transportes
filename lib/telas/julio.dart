@@ -40,28 +40,29 @@ class _JulioState extends State<Julio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70,
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.black,
         centerTitle: true,
         title: const Text(
           'Severino Transportes',
           style: TextStyle(
-              color: Colors.white, fontFamily: 'Lobster', fontSize: 27),
+              color: Colors.white, fontFamily: 'FiraSansB', fontSize: 25),
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             Center(
               child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Text(
-                  'TR Fretes e Mudanças',
-                  style: TextStyle(fontFamily: 'Lobster', fontSize: 25),
+                  'TR Julio',
+                  style: TextStyle(fontFamily: 'FiraSansB', fontSize: 25),
                 ),
               ),
             ),
