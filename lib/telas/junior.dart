@@ -41,7 +41,7 @@ class _JuniorState extends State<Junior> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.black,
         centerTitle: true,
         title: const Text(
@@ -51,13 +51,13 @@ class _JuniorState extends State<Junior> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Center(
+            const Center(
               child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Text(
@@ -66,102 +66,102 @@ class _JuniorState extends State<Junior> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             TextField(
-              style: TextStyle(fontFamily: 'FiraSansB'),
+              style: const TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: 'Digite o Nome do Cliente',
                 fillColor: Colors.white38,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black45),
+                    borderSide: const BorderSide(color: Colors.black45),
                     borderRadius: BorderRadius.circular(18)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(18)),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
-              style: TextStyle(fontFamily: 'FiraSansB'),
+              style: const TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: 'De onde:',
                 fillColor: Colors.white38,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black45),
+                    borderSide: const BorderSide(color: Colors.black45),
                     borderRadius: BorderRadius.circular(18)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(18)),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
-              style: TextStyle(fontFamily: 'FiraSansB'),
+              style: const TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: 'Para Onde:',
                 fillColor: Colors.white38,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black45),
+                    borderSide: const BorderSide(color: Colors.black45),
                     borderRadius: BorderRadius.circular(18)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(18)),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
-              style: TextStyle(fontFamily: 'FiraSansB'),
+              style: const TextStyle(fontFamily: 'FiraSansB'),
               controller: _valueController, // Controlador para o campo de valor
               keyboardType: TextInputType.number, // Apenas teclado numérico
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: 'Digite o Valor',
                 fillColor: Colors.white38,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black45),
+                    borderSide: const BorderSide(color: Colors.black45),
                     borderRadius: BorderRadius.circular(18)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(18)),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
-              style: TextStyle(fontFamily: 'FiraSansB'),
+              style: const TextStyle(fontFamily: 'FiraSansB'),
               controller: _dateController, // Controlador para o campo de data
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: 'Data do Serviço',
                 fillColor: Colors.white38,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black45),
+                    borderSide: const BorderSide(color: Colors.black45),
                     borderRadius: BorderRadius.circular(18)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(18)),
-                suffixIcon: Icon(Icons.calendar_today), // Ícone de calendário
+                suffixIcon: const Icon(Icons.calendar_today), // Ícone de calendário
               ),
               readOnly: true, // Somente leitura
               onTap: () {
                 _selectDate(context); // Abre o seletor de data
               },
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(backgroundColor: Colors.black),
-                child: Padding(
-                  padding: const EdgeInsets.all(7.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(7.0),
                   child: Text(
                     'Realizar Orçamento',
                     style: TextStyle(
@@ -175,10 +175,4 @@ class _JuniorState extends State<Junior> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Junior(),
-  ));
 }

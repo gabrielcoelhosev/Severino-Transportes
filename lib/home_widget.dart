@@ -98,7 +98,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 ),
                               ),
                             ),
-                            Expanded(
+                            const Expanded(
                               child: SizedBox(
                                 height: 5,
                               ),
@@ -107,7 +107,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               flex: 9,
                               child: Center(
                                 child: Padding(
-                                  padding: EdgeInsets.all(0),
+                                  padding: const EdgeInsets.all(0),
                                   child: Text(users[index].text,
                                       style: TextStyle(
                                           fontSize: 18,
