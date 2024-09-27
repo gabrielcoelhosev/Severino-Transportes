@@ -60,7 +60,7 @@ class _JulioState extends State<Julio> {
               child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Text(
-                  'Junior Fretes e Mudanças',
+                  'TR Julio',
                   style: TextStyle(fontFamily: 'Lobster', fontSize: 25),
                 ),
               ),
