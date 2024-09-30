@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:open_file/open_file.dart';
 
 class Junior extends StatefulWidget {
   const Junior({super.key});
@@ -8,13 +13,19 @@ class Junior extends StatefulWidget {
 }
 
 class _JuniorState extends State<Junior> {
-  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _fromController = TextEditingController();
+  final TextEditingController _toController = TextEditingController();
   final TextEditingController _valueController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   @override
   void dispose() {
-    _dateController.dispose(); // Limpa o controlador de data
-    _valueController.dispose(); // Limpa o controlador de valor
+    _nameController.dispose();
+    _fromController.dispose();
+    _toController.dispose();
+    _valueController.dispose();
+    _dateController.dispose();
     super.dispose();
   }
 
@@ -23,17 +34,109 @@ class _JuniorState extends State<Junior> {
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime.now(),
-        lastDate: DateTime(
-          2101,
-        ));
+        lastDate: DateTime(2101));
 
     if (picked != null) {
       setState(() {
         _dateController.text =
             "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
-        // Formata a data como 'YYYY-MM-DD'
       });
     }
+  }
+
+  Future<void> _generateAndOpenPDF() async {
+    // Cria um documento PDF
+    final pdf = pw.Document();
+
+    // Adiciona uma página ao documento com as informações coletadas
+    pdf.addPage(
+      pw.Page(
+        build: (pw.Context context) => pw.Padding(
+          padding: const pw.EdgeInsets.all(16),
+          child: pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.SizedBox(height: 100),
+              pw.Text(
+                'Fretes e Mudanças Junior',
+                style: pw.TextStyle(fontSize: 24, color: PdfColors.blue900,),
+              ),
+              pw.SizedBox(height: 5),
+              pw.Text('CNPJ: 42.177.292/0001-82',
+                  style: pw.TextStyle(fontSize: 14)),
+              pw.SizedBox(height: 40),
+              pw.Text('Orçamento',
+                  style: pw.TextStyle(fontSize: 24, color: PdfColors.blue900)),
+              pw.SizedBox(height: 5),
+              pw.Text(
+                'Data: ${_dateController.text}',
+                style: pw.TextStyle(fontSize: 14, color: PdfColors.blue900),
+              ),
+              pw.SizedBox(height: 50),
+              pw.Text('Ao Cliente',
+                  style: pw.TextStyle(fontSize: 24, color: PdfColors.blue900)),
+              pw.SizedBox(height: 5),
+              pw.Text('${_nameController.text}',
+                  style: pw.TextStyle(fontSize: 18)),
+              pw.SizedBox(height: 50),
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                children: [
+                  pw.Text('Serviço', style: pw.TextStyle(fontSize: 14)),
+                  pw.Text('Descrição', style: pw.TextStyle(fontSize: 14)),
+                  pw.Text('Valor', style: pw.TextStyle(fontSize: 14)),
+                ],
+              ),
+              pw.SizedBox(height: 10),
+              pw.Divider(color: PdfColors.blue900, thickness: 2),
+              pw.SizedBox(height: 50),
+              pw.Row(
+                children: [
+                  pw.Text('Serviço Transporte',
+                      style: pw.TextStyle(fontSize: 14)),
+                  pw.SizedBox(width: 30),
+                  pw.Text(
+                    softWrap: true,
+                    'De ${_fromController.text} para ${_toController.text}',
+                    style: pw.TextStyle(fontSize: 14),
+                  ),
+                  pw.SizedBox(width: 40),
+                  pw.Text('R\$ ${_valueController.text}',
+                      style: pw.TextStyle(fontSize: 14)),
+                ],
+              ),
+              pw.SizedBox(height: 60),
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.end,
+                children: [
+                  pw.Container(
+                    height: 40,
+                    width: 170,
+                    decoration: pw.BoxDecoration(color: PdfColors.blue900),
+                    child: pw.Center(
+                      child: pw.Text('Total: R\$ ${_valueController.text}',
+                          style: pw.TextStyle(
+                              fontSize: 20, color: PdfColors.white)),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+
+    // Obtém o diretório para salvar o arquivo temporariamente
+    final directory = await getTemporaryDirectory();
+    final filePath = '${directory.path}/orcamento.pdf';
+
+    // Salva o PDF como um arquivo
+    final file = File(filePath);
+    await file.writeAsBytes(await pdf.save());
+
+    // Abre o arquivo PDF
+    await OpenFile.open(filePath);
   }
 
   @override
@@ -54,9 +157,7 @@ class _JuniorState extends State<Junior> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             const Center(
               child: Padding(
                 padding: EdgeInsets.all(6),
@@ -66,10 +167,9 @@ class _JuniorState extends State<Junior> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             TextField(
+              controller: _nameController,
               style: const TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
@@ -86,6 +186,7 @@ class _JuniorState extends State<Junior> {
             ),
             const SizedBox(height: 20),
             TextField(
+              controller: _fromController,
               style: const TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
@@ -102,6 +203,7 @@ class _JuniorState extends State<Junior> {
             ),
             const SizedBox(height: 20),
             TextField(
+              controller: _toController,
               style: const TextStyle(fontFamily: 'FiraSansB'),
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
@@ -118,9 +220,9 @@ class _JuniorState extends State<Junior> {
             ),
             const SizedBox(height: 20),
             TextField(
+              controller: _valueController,
               style: const TextStyle(fontFamily: 'FiraSansB'),
-              controller: _valueController, // Controlador para o campo de valor
-              keyboardType: TextInputType.number, // Apenas teclado numérico
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 hintText: 'Digite o Valor',
@@ -136,8 +238,8 @@ class _JuniorState extends State<Junior> {
             ),
             const SizedBox(height: 20),
             TextField(
+              controller: _dateController,
               style: const TextStyle(fontFamily: 'FiraSansB'),
-              controller: _dateController, // Controlador para o campo de data
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 hintText: 'Data do Serviço',
@@ -149,16 +251,16 @@ class _JuniorState extends State<Junior> {
                 focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(18)),
-                suffixIcon: const Icon(Icons.calendar_today), // Ícone de calendário
+                suffixIcon: const Icon(Icons.calendar_today),
               ),
-              readOnly: true, // Somente leitura
+              readOnly: true,
               onTap: () {
-                _selectDate(context); // Abre o seletor de data
+                _selectDate(context);
               },
             ),
             const SizedBox(height: 40),
             TextButton(
-                onPressed: () {},
+                onPressed: _generateAndOpenPDF,
                 style: TextButton.styleFrom(backgroundColor: Colors.black),
                 child: const Padding(
                   padding: EdgeInsets.all(7.0),
@@ -169,7 +271,7 @@ class _JuniorState extends State<Junior> {
                         fontSize: 18,
                         color: Colors.white),
                   ),
-                ))
+                )),
           ],
         ),
       ),
