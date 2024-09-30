@@ -1,16 +1,20 @@
-# severino_trasportes
+# Severino Transportes
 
-A new Flutter project.
+App feito em Flutter onde o usuário pode gerar um Orçamento em PDF em poucos passos.
 
-## Getting Started
+![Screenshot_1727733246](https://github.com/user-attachments/assets/b22ae24f-2b12-4f51-a45b-78238dd74ef0)
 
-This project is a starting point for a Flutter application.
+![Screenshot_1727733250](https://github.com/user-attachments/assets/22b36c39-482a-49c5-bb48-edea0c2c315f)
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot_1727733279](https://github.com/user-attachments/assets/b4e5ae23-5ba4-47b6-803d-87bcd0972d27)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Screenshot_1727733281](https://github.com/user-attachments/assets/c68fec99-c200-450a-b6d5-083feb6f70a7)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1727733284](https://github.com/user-attachments/assets/b8b48ab6-bd22-40bb-995f-34a81ea1193e)
+
+![Screenshot_1727733290](https://github.com/user-attachments/assets/911a6e7a-1875-4305-b6ac-d00a507c5cdc)
+
+![Screenshot_1727733297](https://github.com/user-attachments/assets/28682b1a-8216-4396-a707-50e3357af780)
+
+![Screenshot_1727733334](https://github.com/user-attachments/assets/95703e73-d5c5-4dc4-837c-c3a56b239345)
+
